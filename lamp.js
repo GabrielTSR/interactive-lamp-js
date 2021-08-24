@@ -2,11 +2,11 @@
 
 const lamp = document.getElementById("lamp")
 
-function buttonsOnOff(disabledTurnOn, turnOn) {
+function buttonsOnOff(disabledTurnOn, disabledTurnOff) {
     const turnOn = document.getElementById("turnOn")
     const turnOff = document.getElementById("turnOff")
-    turnOn.disabled = onState
-    turnOn.disabled = offState
+    turnOn.disabled = disabledTurnOn
+    turnOff.disabled = disabledTurnOff
 }
 
 function isLampBroke(lamp) {
@@ -21,8 +21,7 @@ function turnOnLamp() {
         buttonsOnOff(true, false)
 
         lamp.src = "img/ligada.jpg"
-        turnOff.disabled = false
-        turnOn.disabled = true
+        buttonsOnOff(true, false)
     }
 }
 
@@ -34,8 +33,7 @@ function turnOffLamp() {
 
         lamp.src = "img/desligada.jpg"
 
-        turnOff.disabled = true
-        turnOn.disabled = false
+        buttonsOnOff(false, true)
     }
 }
 
@@ -45,8 +43,7 @@ function breakLamp() {
 
     lamp.src = "img/quebrada.jpg"
 
-    turnOff.disabled = true
-    turnOn.disabled = true
+    buttonsOnOff(true, true)
 
 }
 
