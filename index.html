@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="lamp.js" defer></script>
     <title>Lâmpada</title>
 </head>
 
 <body>
     <header>
-        <h1>Lampada</h1>
+        <h1>Lamp</h1>
     </header>
     <main>
         <div class="lampada-container">
-            <img src="img/desligada.jpg" alt="Lâmpada">
+            <img src="img/desligada.jpg" id="lamp" alt="Lâmpada">
         </div>
         <div class="button-container">
-            <button id="ligar">LIGAR</button>
-            <button id="desligar">DESLIGAR</button>
+            <button id="turnOn">TURN ON</button>
+            <button id="turnOff" disabled>TURN OFF</button>
         </div>
     </main>
     <footer>
