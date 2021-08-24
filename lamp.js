@@ -2,19 +2,23 @@
 
 const lamp = document.getElementById("lamp")
 
-function isLampBroke() {
+function buttonsOnOff(onState, offState) {
+    const turnOn = document.getElementById("turnOn")
+    const turnOff = document.getElementById("turnOff")
+    turnOn.disabled = onState
+    turnOn.disabled = offState
+}
+
+function isLampBroke(lamp) {
 
     return lamp.src.indexOf("quebrada") !== -1
 }
 
 function turnOnLamp() {
 
-    const turnOn = document.getElementById("turnOn")
-    const turnOff = document.getElementById("turnOff")
+    if (!isLampBroke(lamp)) {
 
-    if (!isLampBroke()) {
-
-
+        buttonsOnOff(true, false)
 
         lamp.src = "img/ligada.jpg"
         turnOff.disabled = false
@@ -24,12 +28,9 @@ function turnOnLamp() {
 
 function turnOffLamp() {
 
-    const turnOn = document.getElementById("turnOn")
-    const turnOff = document.getElementById("turnOff")
+    if (!isLampBroke(lamp)) {
 
-    if (!isLampBroke()) {
-
-
+        buttonsOnOff(true, false)
 
         lamp.src = "img/desligada.jpg"
 
@@ -40,8 +41,7 @@ function turnOffLamp() {
 
 function breakLamp() {
 
-    const turnOn = document.getElementById("turnOn")
-    const turnOff = document.getElementById("turnOff")
+    buttonsOnOff(true, true)
 
     lamp.src = "img/quebrada.jpg"
 
