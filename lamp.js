@@ -2,7 +2,7 @@
 
 const lamp = document.getElementById("lamp")
 
-function buttonsOnOff(onState, offState) {
+function buttonsOnOff(disabledTurnOn, turnOn) {
     const turnOn = document.getElementById("turnOn")
     const turnOff = document.getElementById("turnOff")
     turnOn.disabled = onState
