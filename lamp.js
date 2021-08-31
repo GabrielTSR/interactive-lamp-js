@@ -10,17 +10,18 @@ function buttonsOnOff(disabledTurnOn, disabledTurnOff) {
     turnOff.disabled = disabledTurnOff
 }
 
-function isLampBroke(lamp) {
+// function isLampBroke(lamp) {
 
-    return lamp.src.indexOf("quebrada") !== -1
-}
+//     return lamp.src.indexOf("quebrada") !== -1
+// }
+//function arrow
+
+const isLampBroke = () => lamp.src.indexOf("quebrada") !== -1
 
 function toTurnOnLamp() {
 
     if (!isLampBroke(lamp)) {
-
         buttonsOnOff(true, false)
-
         lamp.src = "img/ligada.jpg"
         buttonsOnOff(true, false)
     }
@@ -49,9 +50,11 @@ function breakLamp() {
 
 }
 
-function isLampOff() {
-    return lamp.src.includes("desligada")
-}
+// function isLampOff() {
+//     return lamp.src.includes("desligada")
+// }
+
+const isLampOff = () => lamp.src.includes("desligada")
 
 function changeImage() {
     if (isLampOff()) {
