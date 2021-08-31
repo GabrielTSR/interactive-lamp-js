@@ -1,6 +1,7 @@
 "use strict"
 
 const lamp = document.getElementById("lamp")
+let idInterval
 
 function buttonsOnOff(disabledTurnOn, disabledTurnOff) {
     const turnOn = document.getElementById("turnOn")
@@ -14,7 +15,7 @@ function isLampBroke(lamp) {
     return lamp.src.indexOf("quebrada") !== -1
 }
 
-function turnOnLamp() {
+function toTurnOnLamp() {
 
     if (!isLampBroke(lamp)) {
 
@@ -25,7 +26,7 @@ function turnOnLamp() {
     }
 }
 
-function turnOffLamp() {
+function toTurnOffLamp() {
 
     if (!isLampBroke(lamp)) {
 
@@ -44,18 +45,49 @@ function breakLamp() {
     lamp.src = "img/quebrada.jpg"
 
     buttonsOnOff(true, true)
+    document.getElementById("blink").disabled = true
 
+}
+
+function isLampOff() {
+    return lamp.src.includes("desligada")
+}
+
+function changeImage() {
+    if (isLampOff()) {
+        toTurnOnLamp()
+    } else {
+        toTurnOffLamp()
+    }
+}
+
+function toBlink() {
+    const blink = document.getElementById("blink")
+
+    if (blink.textContent == "BLINK") {
+
+        idInterval = setInterval(changeImage, 1000)
+        blink.textContent = "STOP"
+    } else {
+        clearInterval(idInterval)
+        toTurnOffLamp()
+        blink.textContent = "BLINK"
+
+    }
 }
 
 //Events
 document.getElementById("turnOn")
-    .addEventListener("click", turnOnLamp)
+    .addEventListener("click", toTurnOnLamp)
 
-lamp.addEventListener("mouseover", turnOnLamp)
+lamp.addEventListener("mouseover", toTurnOnLamp)
 
 document.getElementById("turnOff")
-    .addEventListener("click", turnOffLamp)
+    .addEventListener("click", toTurnOffLamp)
 
-lamp.addEventListener("mouseleave", turnOffLamp)
+lamp.addEventListener("mouseleave", toTurnOffLamp)
 
 lamp.addEventListener("dblclick", breakLamp)
+
+document.getElementById("blink")
+    .addEventListener("click", toBlink)
