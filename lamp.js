@@ -71,10 +71,14 @@ function toBlink() {
 
         idInterval = setInterval(changeImage, 1000)
         blink.textContent = "STOP"
+        blink.classList.remove("green")
+        blink.className = "red"
     } else {
         clearInterval(idInterval)
         toTurnOffLamp()
         blink.textContent = "BLINK"
+        blink.classList.remove("red")
+        blink.className = "green"
 
     }
 }
