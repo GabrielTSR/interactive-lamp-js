@@ -44,9 +44,11 @@ footer {
 }
 
 .red {
-    background-color: tomato;
+    background-color: #AA0000;
+    color: white;
 }
 
 .green {
-    background-color: darkgreen;
+    background-color: #00AA00;
+    color: white;
 }
