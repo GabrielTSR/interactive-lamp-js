@@ -20,12 +20,6 @@ function RedGreenOnOff(redActived, greenActived) {
     }
 }
 
-// function isLampBroke(lamp) {
-
-//     return lamp.src.indexOf("quebrada") !== -1
-// }
-//function arrow
-
 const isLampBroke = () => lamp.src.indexOf("quebrada") !== -1
 
 function toTurnOnLamp() {
@@ -59,10 +53,6 @@ function breakLamp() {
     document.getElementById("blink").disabled = true
 
 }
-
-// function isLampOff() {
-//     return lamp.src.includes("desligada")
-// }
 
 const isLampOff = () => lamp.src.includes("desligada")
 
