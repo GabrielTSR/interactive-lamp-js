@@ -10,6 +10,16 @@ function buttonsOnOff(disabledTurnOn, disabledTurnOff) {
     turnOff.disabled = disabledTurnOff
 }
 
+function RedGreenOnOff(redActived, greenActived) {
+    if (redActived) {
+        blink.classList.remove("green")
+        blink.className = "red"
+    } else if (greenActived) {
+        blink.classList.remove("red")
+        blink.className = "green"
+    }
+}
+
 // function isLampBroke(lamp) {
 
 //     return lamp.src.indexOf("quebrada") !== -1
@@ -71,14 +81,12 @@ function toBlink() {
 
         idInterval = setInterval(changeImage, 1000)
         blink.textContent = "STOP"
-        blink.classList.remove("green")
-        blink.className = "red"
+        RedGreenOnOff(true, false)
     } else {
         clearInterval(idInterval)
         toTurnOffLamp()
         blink.textContent = "BLINK"
-        blink.classList.remove("red")
-        blink.className = "green"
+        RedGreenOnOff(false, true)
 
     }
 }
